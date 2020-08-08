@@ -1,0 +1,15 @@
+spring:
+    datasource:
+        username: beer_order_service
+        password: password
+        url: jdbc:mysql://127.0.0.1:3306/beer_order_service_db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    artemis:
+        user: artemis
+        password: '{cipher}90b78efa4533e7b378bfa37719092f13072180fb25d0bbb6e45c7cf198635bb7'
+logging:
+    level:
+        #        org.hibernate:
+        #            SQL: DEBUG
+        #            type.descriptor.sql.BasicBinder: TRACE
+        com.zaxxer.hikari:
+            HikariConfig: TRACE

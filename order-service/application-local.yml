@@ -1,28 +1,8 @@
 spring:
     datasource:
         username: beer_order_service
-        password: password
+        password: '{cipher}ffd2a5c65165e4e7ad6e27113f2c3d219bf38ea663d24521be9183a98d802bbc'
         url: jdbc:mysql://127.0.0.1:3306/beer_order_service_db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
-        hikari:
-            maximum-pool-size: 5
-            data-source-properties:
-                cachePrepStmts: true
-                prepStmtCacheSize: 250
-                prepStmtCacheSqlLimit: 2048
-                useServerPrepStmts: true
-                useLocalSessionState: true
-                rewriteBatchedStatements: true
-                cacheResultSetMetadata: true
-                cacheServerConfiguration: true
-                elideSetAutoCommits: true
-                maintainTimeStats: false
-    jpa:
-        database: mysql
-        hibernate:
-            ddl-auto: update
-        properties:
-            hibernate:
-                dialect: org.hibernate.dialect.MySQL8Dialect
 logging:
     level:
 #        org.hibernate:
