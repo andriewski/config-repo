@@ -52,4 +52,3 @@ logging:
         com.zaxxer.hikari:
             HikariConfig: TRACE
         org.springframework.cloud: info
-
