@@ -3,10 +3,55 @@ spring:
         username: beer_inventory_service
         password: password
         url: jdbc:mysql://db-mysql-fra1-57016-inventory-do-user-7886444-0.a.db.ondigitalocean.com:25060/beer_inventory_service_db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&ssl-mode=REQUIRED
+        hikari:
+            maximum-pool-size: 5
+            data-source-properties:
+                cachePrepStmts: true
+                prepStmtCacheSize: 250
+                prepStmtCacheSqlLimit: 2048
+                useServerPrepStmts: true
+                useLocalSessionState: true
+                rewriteBatchedStatements: true
+                cacheResultSetMetadata: true
+                cacheServerConfiguration: true
+                elideSetAutoCommits: true
+                maintainTimeStats: false
+    zipkin:
+        enabled: true
+        base-url: http://142.93.103.93:9411/
+    artemis:
+        host: 142.93.103.217
+        user: artemis
+        password: simetraehcapa
+    jpa:
+        database: mysql
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.MySQL8Dialect
+    # fix for spring boot 2.3.0
+    data:
+        jpa:
+            repositories:
+                bootstrap-mode: default
+    cloud:
+        discovery:
+            enabled: true
+
+eureka:
+    instance:
+        prefer-ip-address: false
+    client:
+        service-url:
+            defaultZone: http://netflix:eureka@142.93.103.103:8761/eureka
+
+feign:
+    hystrix:
+        enabled: true
+
 logging:
     level:
-        #        org.hibernate:
-        #            SQL: DEBUG
-        #            type.descriptor.sql.BasicBinder: TRACE
         com.zaxxer.hikari:
             HikariConfig: TRACE
+        org.springframework.cloud: info
