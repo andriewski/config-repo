@@ -52,3 +52,5 @@ logging:
         com.zaxxer.hikari:
             HikariConfig: TRACE
         org.springframework.cloud: info
+        io.zipkin: debug
+        org.springframework.cloud.sleuth.zipkin2: debug
